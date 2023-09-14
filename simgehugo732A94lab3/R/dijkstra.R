@@ -16,6 +16,8 @@ dijkstra <- function(graph, init_node) {
   #pseudo code source = https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 
   #Checking input
+  stopifnot("v1" %in% colnames(graph) && "v2" %in% colnames(graph) && "w" %in% colnames(graph))
+
   if (nrow(graph) == 0) {
     stop("The graph is empty")
   }
@@ -66,5 +68,5 @@ dijkstra <- function(graph, init_node) {
   }
   #dist is a vector of the shortest distance from the init node to each node
   #ie dist[i] is the shortest distance from the initial node to node i
-  return(list(dist))
+  return(dist)
 }

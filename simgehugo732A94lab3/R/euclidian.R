@@ -6,11 +6,11 @@ euclidean <- function(input1, input2){
     is.numeric(input1), is.vector(input1), length(input1) == 1,
     is.numeric(input2), is.vector(input2), length(input2) == 1
   )
-  
+
   min_inp <- min(input1, input2) #the max from the input
   max_inp <- max(input1, input2) #the min from the input
   remainder <- max_inp %% min_inp #initial remainder
-  
+
   # repeat the proc
   repeat{
     if (remainder != 0){
@@ -18,7 +18,7 @@ euclidean <- function(input1, input2){
       min_inp <- remainder
       remainder <- max_inp %% min_inp
     } else{
-      return(min_inp)
+      return(abs(min_inp))
       break
     }
   }
