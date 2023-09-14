@@ -1,11 +1,10 @@
 Package: simgehugo732A94lab3
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Euclidian and Dijkstra Algorithms
 Version: 0.1.0
 Author: Simge Cinar, Hugo Morvan
 Maintainer: simci637@student.liu.se, hugmo418@student.liu.se
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package was created for the lab 3 in the course Advanced R programming (732A94). It contains two function, "euclidian" and "dijkstra", as per the lab requirements.
 License: CC BY
 Encoding: UTF-8
 LazyData: true
