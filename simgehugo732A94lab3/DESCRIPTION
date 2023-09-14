@@ -2,11 +2,11 @@ Package: simgehugo732A94lab3
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Simge Cinar, Hugo Morvan
+Maintainer: simci637@student.liu.se, hugmo418@student.liu.se
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: CC BY
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.2
