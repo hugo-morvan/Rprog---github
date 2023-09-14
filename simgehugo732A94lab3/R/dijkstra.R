@@ -13,72 +13,58 @@
 
 dijkstra <- function(graph, init_node) {
 
-    #pseudo code (source = https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+  #pseudo code source = https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 
-    #Checking input
-    if (nrow(graph) == 0) {
-        stop("The graph is empty")
+  #Checking input
+  if (nrow(graph) == 0) {
+    stop("The graph is empty")
+  }
+  if (!(init_node %in% graph$v1)){
+    stop("The initial node is not in the graph")
+  }
+
+  dist <- c()
+  prev <- c()
+  unvisited <- c()
+
+  num_uniq <- length(unique(graph$v1))
+
+  #initialize distance to infinity
+  for (i in 1:num_uniq){
+    dist[i] <- Inf
+    unvisited[i] <- i
+  }
+  #Set the distance to zero for the initial node
+  dist[init_node] <- 0
+
+  #Set the current node to the initial node
+  current <- init_node
+
+  while(length(unvisited) > 0) {
+    #print("while loop")
+    #find the node in the queue with the smallest dist
+    min_dist <- Inf
+    for (i in 1:length(unvisited)){
+      if (dist[unvisited[i]] < min_dist) {
+        min_dist <- dist[unvisited[i]]
+        current <- unvisited[i]
+      }
     }
-    if (init_node > nrow(graph)){
-        stop("The initial node is not in the graph")
-    }
+    #remove current from Q
+    unvisited <- unvisited[unvisited != current]
 
-    dist <- c()
-    prev <- c()
-    my_queue <- c()
-
-    print("uniq:")
-    num_uniq <- length(unique(graph[1]))
-    print(num_uniq)
-    #initialize dist
-    for (i in 1:nrow(graph)){
-        dist[i] <- Inf
-        my_queue[i] <- i
-    }
-    #Set the distance to zero for the initial node
-    dist[init_node] <- 0
-
-    #Set the current node to the initial node
-    current <- init_node
-
-    while(length(my_queue) > 0) {
-        #print("while loop")
-        #find the node in the queue with the smallest dist
-        min_dist <- Inf
-        for (i in 1:length(my_queue)){
-            if (dist[my_queue[i]] < min_dist) {
-                print("new min dist found")
-                min_dist <- dist[my_queue[i]]
-                current <- my_queue[i]
-            }
+    #for each neighbor of current
+    for (i in 1:nrow(graph)) {
+      if (graph[i, 1] == current) {
+        neighbor <- graph[i, 2]
+        alt <- dist[current] + graph[i, 3] #weight to the the current node + weight of new path
+        if (alt < dist[neighbor]) {
+          dist[neighbor] <- alt #update the new distance
         }
-
-        #remove current from Q
-        my_queue <- my_queue[my_queue != current]
-
-        #for each neighbor of current
-        for (i in 1:nrow(graph)) {
-            if (graph[i, 1] == current) {
-                neighbor <- graph[i, 2]
-                alt <- dist[current] + graph[i, 3] #weight to the the current node + weight of new path
-                if (alt < dist[neighbor]) {
-                    print("better path found")
-                    dist[neighbor] <- alt #update the new distance
-                    #prev[neighbor] <- current #update the previous neighbor to that node
-                    print(dist)
-                }
-            }
-        }
-
+      }
     }
-    #dist is a vector of the shortest distance from the init node to each node
-    #ie dist[i] is the shortest distance from the initial node to node i
-    return(list(dist = dist))
+  }
+  #dist is a vector of the shortest distance from the init node to each node
+  #ie dist[i] is the shortest distance from the initial node to node i
+  return(list(dist))
 }
-
-wiki_graph <-
-data.frame(v1 = c(1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6),
-           v2 = c(2, 3, 6, 1, 3, 4, 1, 2, 4, 6, 2, 3, 5, 4, 6, 1, 3, 5),
-            w = c(7, 9, 14, 7, 10, 15, 9, 10, 11, 2, 15, 11, 6, 6, 9, 14, 2, 9))
-
-print(dijkstra(wiki_graph, 1))
