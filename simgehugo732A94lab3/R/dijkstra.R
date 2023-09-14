@@ -6,8 +6,8 @@
 #' @export
 #' @examples
 #' wiki_graph <- data.frame(v1=c(1,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,6),
-#'                        v2=c(2,3,6,1,3,4,1,2,4,6,2,3,5,4,6,1,3,5),
-#'                       w=c(7,9,14,7,10,15,9,10,11,2,15,11,6,6,9,14,2,9))
+#'                          v2=c(2,3,6,1,3,4,1,2,4,6,2,3,5,4,6,1,3,5),
+#'                    w=c(7,9,14,7,10,15,9,10,11,2,15,11,6,6,9,14,2,9))
 #' dijkstra(wiki_graph, 1)
 
 
@@ -19,7 +19,7 @@ dijkstra <- function(graph, init_node) {
     if (nrow(graph) == 0) {
         stop("The graph is empty")
     }
-    if (init.node > nrow(graph)){
+    if (init_node > nrow(graph)){
         stop("The initial node is not in the graph")
     }
 
@@ -27,39 +27,49 @@ dijkstra <- function(graph, init_node) {
     prev <- c()
     my_queue <- c()
 
-    #initialize dist and prev
+    print("uniq:")
+    num_uniq <- length(unique(graph[1]))
+    print(num_uniq)
+    #initialize dist
     for (i in 1:nrow(graph)){
         dist[i] <- Inf
-        prev[i] <- NA
         my_queue[i] <- i
     }
     #Set the distance to zero for the initial node
     dist[init_node] <- 0
+
     #Set the current node to the initial node
     current <- init_node
 
     while(length(my_queue) > 0) {
+        #print("while loop")
         #find the node in the queue with the smallest dist
         min_dist <- Inf
         for (i in 1:length(my_queue)){
             if (dist[my_queue[i]] < min_dist) {
+                print("new min dist found")
                 min_dist <- dist[my_queue[i]]
                 current <- my_queue[i]
             }
         }
+
         #remove current from Q
         my_queue <- my_queue[my_queue != current]
+
         #for each neighbor of current
         for (i in 1:nrow(graph)) {
             if (graph[i, 1] == current) {
                 neighbor <- graph[i, 2]
-                alt <- dist[current] + graph[i, 3]
+                alt <- dist[current] + graph[i, 3] #weight to the the current node + weight of new path
                 if (alt < dist[neighbor]) {
-                    dist[neighbor] <- alt
-                    prev[neighbor] <- current
+                    print("better path found")
+                    dist[neighbor] <- alt #update the new distance
+                    #prev[neighbor] <- current #update the previous neighbor to that node
+                    print(dist)
                 }
             }
         }
+
     }
     #dist is a vector of the shortest distance from the init node to each node
     #ie dist[i] is the shortest distance from the initial node to node i
