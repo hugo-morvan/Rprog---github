@@ -11,7 +11,7 @@
 #' dijkstra(wiki_graph, 1)
 
 
-dijkstra <- function(graph, init.node) {
+dijkstra <- function(graph, init_node) {
 
     #pseudo code (source = https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 
@@ -34,9 +34,9 @@ dijkstra <- function(graph, init.node) {
         my_queue[i] <- i
     }
     #Set the distance to zero for the initial node
-    dist[init.node] <- 0
+    dist[init_node] <- 0
     #Set the current node to the initial node
-    current <- init.node
+    current <- init_node
 
     while(length(my_queue) > 0) {
         #find the node in the queue with the smallest dist
