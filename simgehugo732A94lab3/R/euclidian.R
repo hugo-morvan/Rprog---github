@@ -3,7 +3,7 @@
 euclidean <- function(input1, input2){
   # Asserting that inputs are numeric scalars
   stopifnot(
-    is.numeric(input1), is.vector(input1), length(input1) == 1,input1 > 0,
+    is.numeric(input1), is.vector(input1), length(input1) == 1, input1 > 0,
     is.numeric(input2), is.vector(input2), length(input2) == 1, input2 > 0
   )
   
