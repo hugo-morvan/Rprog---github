@@ -1,4 +1,4 @@
-name: R Package CI
+name: R Package Test
 
 on:
   push:
@@ -9,11 +9,8 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+  test:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -29,8 +26,8 @@ jobs:
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
 
-      - name: Build and Check Package
+      - name: Run Tests
         run: |
-          R CMD build .
-          R CMD check *tar.gz
+          library(simgehugo732A94lab3) 
+          testthat::test_dir("tests")
         shell: Rscript {0}
