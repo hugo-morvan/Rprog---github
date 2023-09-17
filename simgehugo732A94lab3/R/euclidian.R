@@ -5,7 +5,7 @@
 #' @return greatest common divisor
 #' @export
 #' @examples
-#' euclidean(123612, 1389234791)
+#' euclidean(123612, 13892347912)
 
 euclidean <- function(input1, input2){
   # Asserting that inputs are numeric scalars
