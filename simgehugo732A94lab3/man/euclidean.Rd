@@ -7,7 +7,9 @@
 euclidean(input1, input2)
 }
 \arguments{
-\item{two}{numeric scalars}
+\item{input1}{a numeric scalars}
+
+\item{input2}{a numeric scalars}
 }
 \value{
 greatest common divisor

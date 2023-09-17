@@ -1,6 +1,7 @@
 #' Euclidean's Algorithm
 #'
-#' @param two numeric scalars
+#' @param input1 a numeric scalars
+#' @param input2 a numeric scalars
 #' @return greatest common divisor
 #' @export
 #' @examples

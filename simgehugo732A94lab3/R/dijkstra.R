@@ -1,7 +1,7 @@
 #' Dijkstra's Algorithm
 #'
 #' @param graph a data frame with columns v1 (from), v2 (to), w (weight)
-#' @param init.node the starting node
+#' @param init_node the starting node
 #' @return the shortest path from init.node to all other nodes
 #' @export
 #' @examples
@@ -43,7 +43,7 @@ dijkstra <- function(graph, init_node) {
   current <- init_node
 
   while(length(unvisited) > 0) {
-    #print("while loop")
+
     #find the node in the queue with the smallest dist
     min_dist <- Inf
     for (i in 1:length(unvisited)){

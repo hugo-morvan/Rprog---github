@@ -9,7 +9,7 @@ dijkstra(graph, init_node)
 \arguments{
 \item{graph}{a data frame with columns v1 (from), v2 (to), w (weight)}
 
-\item{init.node}{the starting node}
+\item{init_node}{the starting node}
 }
 \value{
 the shortest path from init.node to all other nodes
