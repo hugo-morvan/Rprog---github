@@ -1,5 +1,6 @@
-#' Euclidean's Algorithm
+#' Euclidean's Algorithmm
 #'
+
 #' @description This function calculates the greatest common divisor, that is the
 #' number that divides both inputs without remainder
 #' @param input1 a numeric scalar
