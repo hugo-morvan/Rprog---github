@@ -1,8 +1,10 @@
-#' Euclidean's Algorithm
+#' Euclidean's Algorithmm
 #'
-#' @param input1 a numeric scalars
-#' @param input2 a numeric scalars
-#' @return greatest common divisor
+#' @seealso  [Webpage Title](https://en.wikipedia.org/wiki/Euclidean_algorithm)
+#'
+#' @param input1 a numeric scalar
+#' @param input2 a numeric scalar
+#' @return The function returns the greates common divisor of the given two inputs
 #' @export
 #' @examples
 #' euclidean(123612, 1389234791)
