@@ -6,7 +6,7 @@
 #' @param input1 a numeric scalar
 #' @param input2 a numeric scalar
 #' @return The function returns the greatest common divisor of the given two inputs
-#' @seealso [Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
+#' @seealso \href{https://en.wikipedia.org/wiki/Euclidean_algorithm}{Euclidean Algorithm}
 #' @export
 #' @examples
 #' euclidean(123612, 13892347912)
