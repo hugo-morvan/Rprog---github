@@ -15,7 +15,7 @@ euclidean(input1, input2)
 The function returns the greatest common divisor of the given two inputs
 }
 \description{
-This function calculates the greatest common divisor which is the
+This function calculates the greatest common divisor, that is the
 number that divides both inputs without remainder
 }
 \examples{
