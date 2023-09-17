@@ -7,16 +7,20 @@
 euclidean(input1, input2)
 }
 \arguments{
-\item{input1}{a numeric scalars}
+\item{input1}{a numeric scalar}
 
-\item{input2}{a numeric scalars}
+\item{input2}{a numeric scalar}
 }
 \value{
-greatest common divisor
+The function returns the greatest common divisor of the given two inputs
 }
 \description{
-Euclidean's Algorithm
+This function calculates the greatest common divisor which is the
+number that divides both inputs without remainder
 }
 \examples{
 euclidean(123612, 13892347912)
+}
+\seealso{
+[Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
 }

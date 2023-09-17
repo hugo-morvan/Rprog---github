@@ -1,10 +1,11 @@
-#' Euclidean's Algorithmm
+#' Euclidean's Algorithm
 #'
-#' @seealso  [Webpage Title](https://en.wikipedia.org/wiki/Euclidean_algorithm)
-#'
+#' @description This function calculates the greatest common divisor, that is the
+#' number that divides both inputs without remainder
 #' @param input1 a numeric scalar
 #' @param input2 a numeric scalar
-#' @return The function returns the greates common divisor of the given two inputs
+#' @return The function returns the greatest common divisor of the given two inputs
+#' @seealso [Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
 #' @export
 #' @examples
 #' euclidean(123612, 13892347912)
@@ -20,7 +21,6 @@ euclidean <- function(input1, input2){
   max_inp <- max(input1, input2) #the min from the input
   remainder <- max_inp %% min_inp #initial remainder
 
-  # repeat the proc
   repeat{
     if (remainder != 0){
       max_inp <- min_inp
